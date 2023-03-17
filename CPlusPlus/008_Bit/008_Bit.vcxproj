@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d395ec60-272d-481f-af24-19ac0639cee1}</ProjectGuid>
-    <RootNamespace>My001AR47Start</RootNamespace>
+    <ProjectGuid>{36ef474a-699d-4e63-9f05-f96ce5c832eb}</ProjectGuid>
+    <RootNamespace>My008Bit</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="001_AR47Start.cpp" />
+    <ClCompile Include="008_Bit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
