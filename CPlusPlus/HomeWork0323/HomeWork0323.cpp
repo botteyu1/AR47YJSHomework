@@ -43,6 +43,23 @@ public:
 	{
 		return  _Value;
 	}
+	
+	int operatornew(int _Value)
+	{
+		return  _Value;
+	}
+	int operatordelete(int _Value)
+	{
+		return  _Value;
+	}
+	int operator<=(int _Value)
+	{
+		return  _Value;
+	}
+	int operator|(int _Value)
+	{
+		return  _Value;
+	}
 
 	// 클래스가 연산자를 사용할수 있게 만들어주는 것.
 	int operator+(int _Value)
