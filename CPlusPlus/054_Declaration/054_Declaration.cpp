@@ -39,7 +39,6 @@ public:
     // 그럼 컴파일러인 나는 다 exe파일 만들때 GValue 0이 보면 다 0으로 만들어버려야지.
     static const int GValue0 = 0;
 
-private:
     // static 맴버 변수의 경우에는 const가 안붙으면 이녀석은 데이터영역에 위치하게 되고
     // 선언으로만 치게 되고 리터럴 초기화가 불가능해진다.
     // Player에 속한 static 전역변수인 GValue1가 있을거야...
@@ -73,7 +72,7 @@ public:
     // 클래스내부의 함수는 별개로 선언만 놔둘수 있다.
     Player();
 
-    //Monster* NewMonster;
+    Monster* NewMonster;
 };
 
 // 이게 실체라는 겁니다.
@@ -108,11 +107,11 @@ class Monster
 
 int main()
 {
-    //Player::GValue1 = 20;
+    Player::GValue1 = 20;
 
     Function0();
 
-    //Player::GValue1 = 30;
+    Player::GValue1 = 30;
     Function1();
     Function2();
 

@@ -15,15 +15,6 @@ int Value = 0;
 
 // 클래스는 선언이고 어떻게 어떻게 이 객체가 쓰일거다라고 하는 설계도라고 했습니다.
 
-class Player
-{
-public:
-    void Damage()
-    {
-        Value = 20;
-    }
-};
-
 int MonsterAllCountFunction() 
 {
     return 19;
@@ -48,7 +39,7 @@ public:
     Monster()
     {
         Value = 20;
-       ;
+        ++MonsterCount;
     }
 
 
@@ -59,7 +50,7 @@ private:
     // 접근제한 지정자 private 몬스터만 사용할수 있는 전역변수가 됐다.
 
     // const를 붙이고 초기화까지 해주는 순간 이녀석은 완전한 변하지 않는 수가 된다.
-    static const Player player = Player();
+    static const int MonsterCount = 3;
 
     int Arr[3][3];
 };
@@ -67,11 +58,16 @@ private:
 // 실체를 둔다.
 // const int Monster::MonsterCount = 0;
 
-
+class Player 
+{
+public:
+    void Damage() 
+    {
+        Value = 20;
+    }
+};
 
 // 
-
-Player player = Player();
 
 int main()
 {
@@ -83,8 +79,6 @@ int main()
     Monster NewMonster1;
     Monster NewMonster2;
     Monster NewMonster3;
-    
-    static const Player player = Player();
 
     int Count = Monster::GetAllMonsterCount();
 

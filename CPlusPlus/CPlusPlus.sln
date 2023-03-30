@@ -14,8 +14,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{0A0FAE1E-7FA5-4D37-B7F0-F27CEB81FF71}"
 	ProjectSection(SolutionItems) = preProject
 		객체지향.txt = 객체지향.txt
-		단축키.txt = 단축키.txt
 		구조Level의 의미.txt = 구조Level의 의미.txt
+		단축키.txt = 단축키.txt
 		메모리영역.txt = 메모리영역.txt
 		용어설명.txt = 용어설명.txt
 		컴파일과정.txt = 컴파일과정.txt
@@ -147,6 +147,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "056_HeaderAndCpp", "056_HeaderAndCpp\056_HeaderAndCpp.vcxproj", "{6C24523E-8753-4E98-8390-87AB64247D27}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork0329", "HomeWork0329\HomeWork0329.vcxproj", "{043F5F20-56DE-4B23-B490-081A12593433}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork0330", "HomeWork0330\HomeWork0330.vcxproj", "{9ABE26BF-ABB3-49AF-B029-483B78025549}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -676,6 +678,14 @@ Global
 		{043F5F20-56DE-4B23-B490-081A12593433}.Release|x64.Build.0 = Release|x64
 		{043F5F20-56DE-4B23-B490-081A12593433}.Release|x86.ActiveCfg = Release|Win32
 		{043F5F20-56DE-4B23-B490-081A12593433}.Release|x86.Build.0 = Release|Win32
+		{9ABE26BF-ABB3-49AF-B029-483B78025549}.Debug|x64.ActiveCfg = Debug|x64
+		{9ABE26BF-ABB3-49AF-B029-483B78025549}.Debug|x64.Build.0 = Debug|x64
+		{9ABE26BF-ABB3-49AF-B029-483B78025549}.Debug|x86.ActiveCfg = Debug|Win32
+		{9ABE26BF-ABB3-49AF-B029-483B78025549}.Debug|x86.Build.0 = Debug|Win32
+		{9ABE26BF-ABB3-49AF-B029-483B78025549}.Release|x64.ActiveCfg = Release|x64
+		{9ABE26BF-ABB3-49AF-B029-483B78025549}.Release|x64.Build.0 = Release|x64
+		{9ABE26BF-ABB3-49AF-B029-483B78025549}.Release|x86.ActiveCfg = Release|Win32
+		{9ABE26BF-ABB3-49AF-B029-483B78025549}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -689,6 +699,7 @@ Global
 		{AB64B431-00BC-496C-8F58-D876E3736545} = {AA2593B1-EABE-47EE-9736-A7BDAA386322}
 		{315B63A1-2EA2-40D6-9679-BB0105057A57} = {E73F4A55-BC26-4936-B479-0E7887F10C73}
 		{043F5F20-56DE-4B23-B490-081A12593433} = {AA2593B1-EABE-47EE-9736-A7BDAA386322}
+		{9ABE26BF-ABB3-49AF-B029-483B78025549} = {AA2593B1-EABE-47EE-9736-A7BDAA386322}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECD60016-D02F-4232-9E21-4B77D56C2C4C}

@@ -2,8 +2,11 @@
 #include "ConsoleGameScreen.h"
 #include <conio.h>
 #include <Windows.h>
+#include "Bullet.h"
+
 
 Player::Player()
+	:BulletPtr(nullptr)
 {
 
 }
@@ -63,11 +66,23 @@ void Player::Input()
 		break;
 	case 'f':
 	case 'F':
-		Fire = true;
+		BulletPtr[BulletCount].SetPos(Pos);
+		BulletPtr[BulletCount].FireOn();
+		BulletCount++;
+		if (Bullet::ArrBulletCount == BulletCount)
+		{
+			BulletCount = 0;
+		}
 		break;
 	default:
 		break;
 	}
 
 	Sleep(InterFrame);
+}
+
+
+void Player::Render()
+{
+	ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Pos, '*');
 }
