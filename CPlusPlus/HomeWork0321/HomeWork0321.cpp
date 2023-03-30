@@ -12,25 +12,21 @@
 // 특정대상이 다른 대상을 때린다.
 // 데이터를 변화시켜서 목적을 이룬다.
 void Damage(
-    const char* const _AttName, // 때리는 족의 이름
-    const char* const _DefName, // 맞는 쪽의 이름
     const int& _Att,  // 때리는 쪽의 공격력
     int& _Hp // 맞는 쪽의 체력
 )
 {
     _Hp -= _Att;
-
 }
 
-void DamageRender(
+void PrintDamage(
     const char* const _AttName, // 때리는 족의 이름
     const char* const _DefName, // 맞는 쪽의 이름
-    const int& _Att  // 때리는 쪽의 공격력
+    const int& _Att,  // 때리는 쪽의 공격력
 )
 {
     printf_s("%s가 공격을 시작합니다\n", _AttName);
     printf_s("%s가 %d의 데미지를 입었습니다.\n", _DefName, _Att);
-
 }
 
 void StatusRender(
@@ -61,20 +57,21 @@ int main()
     int MonsterHp = 100;
     int MonsterAtt = 10;
 
-    StatusRender("Player", PlayerAtt, PlayerHp);
-    StatusRender("Monster", MonsterAtt, MonsterHp);
-    _getch();
-
     while (true)
     {
         system("cls");
         // 추후설명
         // 콘솔 화면에 모든 글자를 지웁니다.
 
-        Damage("Player", "Monster", PlayerAtt, MonsterHp);
         StatusRender("Player", PlayerAtt, PlayerHp);
         StatusRender("Monster", MonsterAtt, MonsterHp);
-        DamageRender("Player", "Monster", PlayerAtt);
+        _getch();
+
+        MonsterHp -= PlayerAtt;
+
+        // Damage(PlayerAtt, MonsterHp);
+
+        PrintDamage("Player", "Monster", PlayerAtt, MonsterHp);
         _getch();
 
         if (0 >= MonsterHp)
@@ -85,12 +82,7 @@ int main()
             break;
         }
 
-        system("cls");
-
         Damage("Monster", "Player", MonsterAtt, PlayerHp);
-        StatusRender("Player", PlayerAtt, PlayerHp);
-        StatusRender("Monster", MonsterAtt, MonsterHp);
-        DamageRender("Monster", "Player", MonsterAtt);
         _getch();
 
         if (0 >= PlayerHp)

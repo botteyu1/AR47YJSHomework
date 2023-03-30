@@ -9,59 +9,17 @@
 // 0을 포함할지 아닐지는 스스로 정하세요
 int StringCount(const char* _String)
 {
-    int count = 0;
-   
-    while (true)
-    {
-        char c = _String[count];
-        if (c == 0)
-        {
-            return count;
-        }
-        count++;
-    }
+    return 4;
 }
 
-void TrimDelete(char* _String)
+int TrimDelete(char* _String)
 {
-    int Count = 0;
-    
-    char Arr[1024] = {};
-    int p = 0;
-    while (true)
-    {
-        char c = _String[Count];
-        if (c == 0)
-        {
-            Arr[p] = 0;
-            int i = 0;
-            while (i <= p)
-            {
-                _String[i] = Arr[i];
-                i++;
-            }
-            return;
-        }
-        else if(c != ' ')
-        {
-            Arr[p] = c;
-            p++;
-        }
-        
-        Count++;
-    }
+    return 4;
 }
 
 int StringToInt(const char* _String)
 {
-    int result = 0;
-    int length = StringCount(_String);
-    for (int i = 0; i < length; i++)
-    {
-        result = result * 10 + (_String[i] - '0');
-    }
-
-    return result;
+    return 4;
 }
 
 int main()
