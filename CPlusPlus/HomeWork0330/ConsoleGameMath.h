@@ -13,6 +13,16 @@ public:
 		return { X / 2, Y / 2 };
 	}
 
+	bool Check(const int2& _Other)
+	{
+		return X == _Other.X && Y == _Other.Y;
+	}
+
+	bool operator==(const int2& _Other) 
+	{
+		return X == _Other.X && Y == _Other.Y;
+	}
+
 public:
 	inline int2()
 	{
