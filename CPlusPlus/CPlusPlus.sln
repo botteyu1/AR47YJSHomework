@@ -152,6 +152,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork0330", "HomeWork033
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "057_inheritance", "057_inheritance\057_inheritance.vcxproj", "{858181F6-9A15-4E85-A0C2-A772D8E58B41}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngineArray", "GameEngineArray\GameEngineArray.vcxproj", "{27DD616E-08A0-46AD-886F-2AC6945345C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -696,6 +698,14 @@ Global
 		{858181F6-9A15-4E85-A0C2-A772D8E58B41}.Release|x64.Build.0 = Release|x64
 		{858181F6-9A15-4E85-A0C2-A772D8E58B41}.Release|x86.ActiveCfg = Release|Win32
 		{858181F6-9A15-4E85-A0C2-A772D8E58B41}.Release|x86.Build.0 = Release|Win32
+		{27DD616E-08A0-46AD-886F-2AC6945345C8}.Debug|x64.ActiveCfg = Debug|x64
+		{27DD616E-08A0-46AD-886F-2AC6945345C8}.Debug|x64.Build.0 = Debug|x64
+		{27DD616E-08A0-46AD-886F-2AC6945345C8}.Debug|x86.ActiveCfg = Debug|Win32
+		{27DD616E-08A0-46AD-886F-2AC6945345C8}.Debug|x86.Build.0 = Debug|Win32
+		{27DD616E-08A0-46AD-886F-2AC6945345C8}.Release|x64.ActiveCfg = Release|x64
+		{27DD616E-08A0-46AD-886F-2AC6945345C8}.Release|x64.Build.0 = Release|x64
+		{27DD616E-08A0-46AD-886F-2AC6945345C8}.Release|x86.ActiveCfg = Release|Win32
+		{27DD616E-08A0-46AD-886F-2AC6945345C8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -710,6 +720,7 @@ Global
 		{315B63A1-2EA2-40D6-9679-BB0105057A57} = {E73F4A55-BC26-4936-B479-0E7887F10C73}
 		{043F5F20-56DE-4B23-B490-081A12593433} = {AA2593B1-EABE-47EE-9736-A7BDAA386322}
 		{9ABE26BF-ABB3-49AF-B029-483B78025549} = {AA2593B1-EABE-47EE-9736-A7BDAA386322}
+		{27DD616E-08A0-46AD-886F-2AC6945345C8} = {AA2593B1-EABE-47EE-9736-A7BDAA386322}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECD60016-D02F-4232-9E21-4B77D56C2C4C}
