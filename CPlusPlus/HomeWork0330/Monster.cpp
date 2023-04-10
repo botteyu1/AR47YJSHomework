@@ -6,6 +6,28 @@ Monster::Monster()
 	RenderChar = 'M';
 }
 
+// 생략하셔야 합니다. 선언과 구현을 분리했다면
+void Monster::Render() /*override*/
+{
+	if (true == IsUpdate())
+	{
+		ConsoleGameObject::Render();
+	} 
+	else if(0 < DeathTime)
+	{
+		if (DeathTime % 2)
+		{
+			ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Pos, '@');
+		}
+		else 
+		{
+			ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Pos, '+');
+		}
+		
+		--DeathTime;
+	}
+}
+
 void Monster::Update() 
 {
 	if (false == IsUpdate())
@@ -13,29 +35,11 @@ void Monster::Update()
 		return;
 	}
 
-	// 업데이트마다 지정된 방향으로 한칸씩 이동
-	Move();
-}
+	if (true == DownCheck)
+	{
+		DownCheck = false;
+		return;
+	}
 
-void Monster::Turn()
-{
-	Dir = -Dir;
-	//벗어난 화면 돌아가기
-	Move();
-}
-
-
-
-void Monster::Move()
-{
-	int2 NewPos = GetPos();
-	SetPos({ NewPos.X + Dir,NewPos.Y });
-}
-
-void Monster::CollisionEnter()
-{
-	Turn();
-	//한칸 내림
-	int2 NewPos = GetPos();
-	SetPos({ NewPos.X ,NewPos.Y +1});
+	// Pos.X += Dir;
 }

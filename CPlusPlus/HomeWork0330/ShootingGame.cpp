@@ -64,33 +64,14 @@ void ShootingGame::Collision()
 			}
 		}
 	}
-	
-	//몬스터와 벽 충돌 판정
-	for (size_t i = 0; i < ArrMonsterCount; i++)
-	{
-		Monster* CurMonster = &ArrMonster[i];
-		// 죽으면 넘어감
-		if (false == CurMonster->IsUpdate())
-		{
-			continue;
-		}
-		
-		if (true == ConsoleGameScreen::GetMainScreen().IsScreenOver(CurMonster->GetPos()))
-		{
-			for (size_t j = 0; j < ArrMonsterCount; j++)
-			{
-				CurMonster = &ArrMonster[j];
-				CurMonster->CollisionEnter();
-			}
-			break;
-		}
 
-	}
 }
 
 void ShootingGame::MonsterEndCheck()
 {
 	// 1. 움직이게 한다.
+	// 왼쪽으로 움직이게 해본다.
+	// 오른으로 움직이게 해본다.
 
 	// 2. 끝에 어떠한 몬스터중 단 1개라도 닿았는지 확인한다.
 	//    2-1. 왼쪽 끝을체크한다.
@@ -99,6 +80,30 @@ void ShootingGame::MonsterEndCheck()
 	//{
 	//	int a = 0;
 	//}
+	// 체크한 결과만을 내뱉는다.
+	bool Check = false;
+	for (size_t i = 0; i < ArrMonsterCount; i++)
+	{
+		int2 NextPos = ArrMonster[i].GetNextPos();
+
+		if (true == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
+		{
+			Check = true;
+			break;
+		}
+	}
+
+	if (false == Check)
+	{
+		return;
+	}
+
+	for (size_t i = 0; i < ArrMonsterCount; i++)
+	{
+		ArrMonster[i].Down();
+	}
+
+
 
 	// 3. 방향을 바꾼다.
 
@@ -121,6 +126,8 @@ void ShootingGame::GameUpdate()
 			ArrMonster[i].Render();
 		}
 
+		MonsterEndCheck();
+		Collision();
 
 		ConsoleGameScreen::GetMainScreen().ScreenPrint();
 
@@ -130,8 +137,6 @@ void ShootingGame::GameUpdate()
 		{
 			ArrMonster[i].Update();
 		}
-		Collision();
-		MonsterEndCheck();
 
 	}
 }
