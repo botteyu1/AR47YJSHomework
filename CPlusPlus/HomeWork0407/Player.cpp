@@ -5,6 +5,7 @@
 #include "ConsoleObjectManager.h"
 #include "Bomb.h"
 #include "GameEnum.h"
+#include "ConsoleObjectManager.h"
 
 bool Player::IsGameUpdate = true;
 
@@ -14,6 +15,28 @@ Player::Player()
 	SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
 
 }
+bool Player::IsBomb(int2 _NextPos)
+{
+	// 폭탄이 설치되었다면 못통과하게 만들어놓으세요.
+	GameEngineArray<ConsoleGameObject*>& BombGroup
+		= ConsoleObjectManager::GetGroup(ObjectOrder::Bomb);
+
+
+	for (int i = 0; i < BombGroup.Count(); i++)
+	{
+		if (BombGroup[i] == nullptr)
+		{
+			continue;
+		}
+		if (_NextPos == BombGroup[i]->GetPos())
+		{
+			return true;
+		}
+	}
+	return false;
+
+}
+
 // 화면바깥으로 못나가게 하세요. 
 void Player::Update()
 {
@@ -23,17 +46,19 @@ void Player::Update()
 	}
 
 	char Ch = _getch();
-
+	
 	int2 NextPos = { 0, 0 };
-
+	
 	switch (Ch)
 	{
 	case 'a':
 	case 'A':
 		NextPos = Pos;
 		NextPos.X -= 1;
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
+		
+		if ((false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos)) and !IsBomb(NextPos))
 		{
+			
 			Pos.X -= 1;
 		}
 		break;
@@ -41,7 +66,7 @@ void Player::Update()
 	case 'D':
 		NextPos = Pos;
 		NextPos.X += 1;
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos) and !IsBomb(NextPos))
 		{
 			Pos.X += 1;
 		}
@@ -50,7 +75,7 @@ void Player::Update()
 	case 'W':
 		NextPos = Pos;
 		NextPos.Y -= 1;
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos) and !IsBomb(NextPos))
 		{
 			Pos.Y -= 1;
 		}
@@ -59,7 +84,7 @@ void Player::Update()
 	case 'S':
 		NextPos = Pos;
 		NextPos.Y += 1;
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos) and !IsBomb(NextPos))
 		{
 			Pos.Y += 1;
 		}

@@ -7,7 +7,7 @@ class Bomb : public ConsoleGameObject
 {
 private:
 	int BoomCount = 10;
-	int DeathCount = 2;
+	int DeathCount = -1;
 
 public:
 	// constrcuter destructer

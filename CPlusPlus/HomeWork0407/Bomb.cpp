@@ -20,17 +20,17 @@ void Bomb::Update()
 {
 	ConsoleGameObject::Update();
 	//죽고있는 상황으로 만들고 터지는 상황이 끝나면 off처리
-	if (0 >= DeathCount)
+	if (0 == DeathCount)
 	{
-		Off();
+		Death();
 	}
-	else if (IsDeath())
+	else if (DeathCount != -1)
 	{
 		DeathCount--;
 	}
 	else if (0 >= --BoomCount)
 	{
-		Death();
+		DeathCount = 2;
 		RenderChar = '%';
 	}
 }
@@ -40,7 +40,7 @@ void Bomb::Render()
 {
 	ConsoleGameObject::Render();
 
-	if (IsDeath())
+	if (DeathCount != -1)
 	{
 		// 시간에 지남에따라 폭발이 점점 퍼짐
 		switch (DeathCount)

@@ -36,6 +36,7 @@ int main()
 	{
 		ConsoleObjectManager::ConsoleAllObjectUpdate();
 		ConsoleObjectManager::ConsoleAllObjectRender();
+		ConsoleObjectManager::ConsoleAllObjectRelease();
 		Sleep(200);
 	}
 

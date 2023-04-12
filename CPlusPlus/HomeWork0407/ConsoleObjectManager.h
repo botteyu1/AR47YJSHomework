@@ -38,8 +38,17 @@ public:
 		return CreateConsoleObject<ObjectType>((int)_Order);
 	}
 
+
+	template<typename EnumType>
+	static GameEngineArray<ConsoleGameObject*>& GetGroup(EnumType _Order)
+	{
+		return AllObject[(int)_Order];
+	}
+
+
 	static void ConsoleAllObjectUpdate();
 	static void ConsoleAllObjectRender();
+	static void ConsoleAllObjectRelease();
 	static void ConsoleAllObjectDelete();
 
 	static GameEngineArray<ConsoleGameObject*>& GetGroup(int _Order)
