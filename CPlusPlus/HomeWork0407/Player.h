@@ -14,8 +14,14 @@ public:
 
 	bool IsBomb(int2 _NextPos);
 
+	void BombPowerPlus() 
+	{
+		BombPower++;
+	}
+
 protected:
 
 private:
+	int BombPower = 1;
 };
 

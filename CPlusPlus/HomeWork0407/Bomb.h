@@ -5,9 +5,6 @@
 class ConsoleGameScreen;
 class Bomb : public ConsoleGameObject
 {
-private:
-	int BoomCount = 10;
-	int DeathCount = -1;
 
 public:
 	// constrcuter destructer
@@ -20,13 +17,15 @@ public:
 	Bomb& operator=(const Bomb& _Other) = delete;
 	Bomb& operator=(Bomb&& _Other) noexcept = delete;
 
-	void Init();
+	void Init(int _BombPower);
 
 protected:
 	void Update() override;
 	void Render() override;
 
-	void Exploding(const int _iNum);
-
+private:
+	int BoomCount = 5;
+	int MaxExpPower = 5;
+	int CurExpPower = 0;
 };
 

@@ -11,9 +11,4 @@ void ConsoleGameObject::Render()
 	ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Pos, RenderChar);
 }
 
-void ConsoleGameObject::Update() {
-	if (false == IsUpdate())
-	{
-		return;
-	}
-}
+void ConsoleGameObject::Update() {}

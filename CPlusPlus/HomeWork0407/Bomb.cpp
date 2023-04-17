@@ -9,8 +9,10 @@ Bomb::~Bomb()
 {
 }
 
-void Bomb::Init()
+void Bomb::Init(int _BombPower)
 {
+	MaxExpPower = _BombPower;
+	CurExpPower = 0;
 	RenderChar = '@';
 }
 
@@ -19,19 +21,16 @@ void Bomb::Init()
 void Bomb::Update() 
 {
 	ConsoleGameObject::Update();
-	//죽고있는 상황으로 만들고 터지는 상황이 끝나면 off처리
-	if (0 == DeathCount)
+
+	if (CurExpPower == MaxExpPower)
 	{
 		Death();
+		// Off();
 	}
-	else if (DeathCount != -1)
+
+	if (0 >= --BoomCount)
 	{
-		DeathCount--;
-	}
-	else if (0 >= --BoomCount)
-	{
-		DeathCount = 2;
-		RenderChar = '%';
+		CurExpPower++;
 	}
 }
 
@@ -40,33 +39,16 @@ void Bomb::Render()
 {
 	ConsoleGameObject::Render();
 
-	if (DeathCount != -1)
+	for (int i = 0; i < CurExpPower; i++)
 	{
-		// 시간에 지남에따라 폭발이 점점 퍼짐
-		switch (DeathCount)
-		{
-		case 0:
-			Exploding(3);
-		case 1:
-			Exploding(2);
-		case 2:
-			Exploding(1);
-			break;
-		default:
-			break;
-		}
+		int2 Left = GetPos() + int2::Left * i;
+		int2 Right = GetPos() + int2::Right * i;
+		int2 Up = GetPos() + int2::Up * i;
+		int2 Down = GetPos() + int2::Down * i;
+
+		ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Left, '#');
+		ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Right, '#');
+		ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Up, '#');
+		ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Down, '#');
 	}
-}
-
-void Bomb::Exploding(const int _iNum)
-{
-	int2 iPos = { Pos.X+ _iNum, Pos.Y };
-	ConsoleGameScreen::GetMainScreen().SetScreenCharacter(iPos,'%');
-	 iPos = { Pos.X- _iNum, Pos.Y };
-	ConsoleGameScreen::GetMainScreen().SetScreenCharacter(iPos,'%');
-	 iPos = { Pos.X, Pos.Y + _iNum };
-	ConsoleGameScreen::GetMainScreen().SetScreenCharacter(iPos,'%');
-	 iPos = { Pos.X, Pos.Y - _iNum };
-	ConsoleGameScreen::GetMainScreen().SetScreenCharacter(iPos,'%');
-
 }
